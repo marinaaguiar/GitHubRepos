@@ -13,6 +13,9 @@
 		9CB02A82279EC7C3000BCE20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02A80279EC7C3000BCE20 /* Main.storyboard */; };
 		9CB02A84279EC7C4000BCE20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02A83279EC7C4000BCE20 /* Assets.xcassets */; };
 		9CB02A87279EC7C4000BCE20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02A85279EC7C4000BCE20 /* LaunchScreen.storyboard */; };
+		9CB02A9E279EDD34000BCE20 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02A9C279EDD34000BCE20 /* ListView.swift */; };
+		9CB02A9F279EDD34000BCE20 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02A9D279EDD34000BCE20 /* ListView.xib */; };
+		9CB02AA2279EDDEA000BCE20 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AA1279EDDEA000BCE20 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		9CB02A83279EC7C4000BCE20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CB02A86279EC7C4000BCE20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CB02A88279EC7C4000BCE20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CB02A9C279EDD34000BCE20 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		9CB02A9D279EDD34000BCE20 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
+		9CB02AA1279EDDEA000BCE20 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,90 @@
 		9CB02A79279EC7C3000BCE20 /* GitHubRepos */ = {
 			isa = PBXGroup;
 			children = (
-				9CB02A7A279EC7C3000BCE20 /* AppDelegate.swift */,
-				9CB02A7C279EC7C3000BCE20 /* SceneDelegate.swift */,
+				9CB02A8E279EC9CE000BCE20 /* Sources */,
+				9CB02A8F279EC9D6000BCE20 /* Resources */,
 				9CB02A7E279EC7C3000BCE20 /* ViewController.swift */,
 				9CB02A80279EC7C3000BCE20 /* Main.storyboard */,
+			);
+			path = GitHubRepos;
+			sourceTree = "<group>";
+		};
+		9CB02A8E279EC9CE000BCE20 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02A90279EC9F9000BCE20 /* Application */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9CB02A8F279EC9D6000BCE20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				9CB02A83279EC7C4000BCE20 /* Assets.xcassets */,
 				9CB02A85279EC7C4000BCE20 /* LaunchScreen.storyboard */,
 				9CB02A88279EC7C4000BCE20 /* Info.plist */,
 			);
-			path = GitHubRepos;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9CB02A90279EC9F9000BCE20 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AA0279EDDD2000BCE20 /* Networking */,
+				9CB02A93279ECA3B000BCE20 /* Scenes */,
+				9CB02A92279ECA22000BCE20 /* SceneDelegate */,
+				9CB02A91279ECA10000BCE20 /* AppDelegate */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9CB02A91279ECA10000BCE20 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02A7A279EC7C3000BCE20 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		9CB02A92279ECA22000BCE20 /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02A7C279EC7C3000BCE20 /* SceneDelegate.swift */,
+			);
+			path = SceneDelegate;
+			sourceTree = "<group>";
+		};
+		9CB02A93279ECA3B000BCE20 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02A94279EDC8E000BCE20 /* RepoList */,
+				9CB02A95279EDC99000BCE20 /* Detail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9CB02A94279EDC8E000BCE20 /* RepoList */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02A9C279EDD34000BCE20 /* ListView.swift */,
+				9CB02A9D279EDD34000BCE20 /* ListView.xib */,
+			);
+			path = RepoList;
+			sourceTree = "<group>";
+		};
+		9CB02A95279EDC99000BCE20 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9CB02AA0279EDDD2000BCE20 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AA1279EDDEA000BCE20 /* APIService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB02A9F279EDD34000BCE20 /* ListView.xib in Resources */,
 				9CB02A87279EC7C4000BCE20 /* LaunchScreen.storyboard in Resources */,
 				9CB02A84279EC7C4000BCE20 /* Assets.xcassets in Resources */,
 				9CB02A82279EC7C3000BCE20 /* Main.storyboard in Resources */,
@@ -138,6 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB02A9E279EDD34000BCE20 /* ListView.swift in Sources */,
+				9CB02AA2279EDDEA000BCE20 /* APIService.swift in Sources */,
 				9CB02A7F279EC7C3000BCE20 /* ViewController.swift in Sources */,
 				9CB02A7B279EC7C3000BCE20 /* AppDelegate.swift in Sources */,
 				9CB02A7D279EC7C3000BCE20 /* SceneDelegate.swift in Sources */,
@@ -291,7 +375,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DSYB3VSYU2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubRepos/Info.plist;
+				INFOPLIST_FILE = GitHubRepos/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -319,7 +403,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DSYB3VSYU2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubRepos/Info.plist;
+				INFOPLIST_FILE = GitHubRepos/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
