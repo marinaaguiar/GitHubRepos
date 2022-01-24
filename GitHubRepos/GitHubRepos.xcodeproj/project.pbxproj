@@ -16,6 +16,9 @@
 		9CB02A9E279EDD34000BCE20 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02A9C279EDD34000BCE20 /* ListView.swift */; };
 		9CB02A9F279EDD34000BCE20 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02A9D279EDD34000BCE20 /* ListView.xib */; };
 		9CB02AA2279EDDEA000BCE20 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AA1279EDDEA000BCE20 /* APIService.swift */; };
+		9CB02AA6279EEA85000BCE20 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AA4279EEA85000BCE20 /* ListViewCell.swift */; };
+		9CB02AA7279EEA85000BCE20 /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02AA5279EEA85000BCE20 /* ListViewCell.xib */; };
+		9CB02AA9279F0E2D000BCE20 /* RepoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AA8279F0E2D000BCE20 /* RepoResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		9CB02A9C279EDD34000BCE20 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		9CB02A9D279EDD34000BCE20 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
 		9CB02AA1279EDDEA000BCE20 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9CB02AA4279EEA85000BCE20 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		9CB02AA5279EEA85000BCE20 /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
+		9CB02AA8279F0E2D000BCE20 /* RepoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,8 @@
 		9CB02A94279EDC8E000BCE20 /* RepoList */ = {
 			isa = PBXGroup;
 			children = (
+				9CB02AAA279F0E38000BCE20 /* Model */,
+				9CB02AA3279EEA61000BCE20 /* Components */,
 				9CB02A9C279EDD34000BCE20 /* ListView.swift */,
 				9CB02A9D279EDD34000BCE20 /* ListView.xib */,
 			);
@@ -146,6 +154,23 @@
 				9CB02AA1279EDDEA000BCE20 /* APIService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		9CB02AA3279EEA61000BCE20 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AA4279EEA85000BCE20 /* ListViewCell.swift */,
+				9CB02AA5279EEA85000BCE20 /* ListViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9CB02AAA279F0E38000BCE20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AA8279F0E2D000BCE20 /* RepoResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +233,7 @@
 			files = (
 				9CB02A9F279EDD34000BCE20 /* ListView.xib in Resources */,
 				9CB02A87279EC7C4000BCE20 /* LaunchScreen.storyboard in Resources */,
+				9CB02AA7279EEA85000BCE20 /* ListViewCell.xib in Resources */,
 				9CB02A84279EC7C4000BCE20 /* Assets.xcassets in Resources */,
 				9CB02A82279EC7C3000BCE20 /* Main.storyboard in Resources */,
 			);
@@ -224,6 +250,8 @@
 				9CB02AA2279EDDEA000BCE20 /* APIService.swift in Sources */,
 				9CB02A7F279EC7C3000BCE20 /* ViewController.swift in Sources */,
 				9CB02A7B279EC7C3000BCE20 /* AppDelegate.swift in Sources */,
+				9CB02AA6279EEA85000BCE20 /* ListViewCell.swift in Sources */,
+				9CB02AA9279F0E2D000BCE20 /* RepoResponse.swift in Sources */,
 				9CB02A7D279EC7C3000BCE20 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
