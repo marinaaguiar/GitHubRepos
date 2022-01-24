@@ -13,19 +13,32 @@ struct RepoResponse: Codable {
 
 struct Item: Codable {
     let repoTitle: String
+    let owner: [Owner]
     let repoDescription: String
     let forksCount: Int
     let starsCount: Int
-    let authorImage: String
+}
+
+struct Owner: Codable {
+    let username: String
+    let authorImageUrl: String
 }
 
 private extension Item {
     enum CodingKeys: String, CodingKey {
         case repoTitle = "name"
+        case owner
         case repoDescription = "description"
         case forksCount = "forks"
         case starsCount = "stargazers_count"
-        case authorImage = "avatar_url"
+    }
+}
+
+private extension Owner {
+    enum CodingKeys: String, CodingKey {
+        case username = "login"
+        case authorImageUrl = "avatar_url"
+        
     }
 }
 
