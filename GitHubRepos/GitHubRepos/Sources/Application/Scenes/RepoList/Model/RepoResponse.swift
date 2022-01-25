@@ -8,20 +8,28 @@
 import Foundation
 
 struct RepoResponse: Codable {
+    let totalCount: Int
     let items: [Item]
 }
 
 struct Item: Codable {
-    let repoTitle: String
-    let owner: [Owner]
-    let repoDescription: String
+    let repoTitle: String?
+    let owner: Owner
+    let repoDescription: String?
     let forksCount: Int
     let starsCount: Int
 }
 
 struct Owner: Codable {
-    let username: String
-    let authorImageUrl: String
+    let username: String?
+    let authorImageUrl: String?
+}
+
+private extension RepoResponse {
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+        case items
+    }
 }
 
 private extension Item {
