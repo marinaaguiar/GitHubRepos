@@ -84,8 +84,8 @@
                         <rect key="frame" x="16" y="16" width="70" height="70"/>
                         <color key="tintColor" systemColor="systemGray4Color"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="ICG-R6-fmz"/>
-                            <constraint firstAttribute="width" constant="70" id="Lsp-4K-ih6"/>
+                            <constraint firstAttribute="width" constant="70" id="RYf-f6-Em1"/>
+                            <constraint firstAttribute="height" constant="70" id="S7t-iY-j5P"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -95,8 +95,8 @@
                     <constraint firstItem="Huf-bj-806" firstAttribute="leading" secondItem="C5E-IQ-XKV" secondAttribute="leading" id="F6H-l2-8ch"/>
                     <constraint firstAttribute="trailing" secondItem="KLk-xQ-Sk1" secondAttribute="trailing" id="HaL-oA-yza"/>
                     <constraint firstItem="Huf-bj-806" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="C5E-IQ-XKV" secondAttribute="baseline" constant="20" id="Q6G-jL-AG5"/>
-                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QaV-0k-ekP"/>
-                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="eX3-b4-15D"/>
+                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="leading" secondItem="KLk-xQ-Sk1" secondAttribute="leading" constant="16" id="QaV-0k-ekP"/>
+                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="top" secondItem="KLk-xQ-Sk1" secondAttribute="top" constant="16" id="eX3-b4-15D"/>
                     <constraint firstAttribute="trailing" secondItem="C5E-IQ-XKV" secondAttribute="trailing" constant="16" id="fb5-sP-FVX"/>
                     <constraint firstItem="KLk-xQ-Sk1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ggB-nF-8EB"/>
                     <constraint firstAttribute="bottom" secondItem="KLk-xQ-Sk1" secondAttribute="bottom" id="kRg-HK-mVE"/>

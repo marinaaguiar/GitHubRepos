@@ -63,14 +63,11 @@ extension ListViewController {
                 self.items = result.items
                 self.tableView.reloadData()
                 print(result)
-                }
+            }
         }
     }
-    
-    
-    
-}
 
+}
 
 extension ListViewController: UITableViewDataSource {
     
@@ -89,16 +86,18 @@ extension ListViewController: UITableViewDataSource {
         }
                 
         let item = indexPath.row
-        cell.getAuthorImageUrl(imageUrl: items[item].owner.authorImageUrl)
+        
+        cell.fill(item: items[item])
+        cell.updateImage(imageUrl: items[item].owner.authorImageUrl)
         cell.imageBorder()
-
-        cell.repoTitle.text = items[item].repoTitle
-        cell.repoDescription.text = items[item].repoDescription
-        cell.starsCount.text = String(items[item].starsCount)
-        cell.forksCount.text = String(items[item].forksCount)
-        cell.username.text = items[item].owner.username
-            
+        
         return cell
+    }
+    
+    private func calculateIndexPathsToReload() -> [IndexPath] {
+      let startIndex = items.count - newItems.count
+      let endIndex = startIndex + newItems.count
+      return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
 }
 

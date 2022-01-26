@@ -38,6 +38,4 @@ struct RepoAPI {
     func fetchRepos(completion: @escaping (RepoResponse) -> Void) {
         apiService.fetchGenericData(urlString: basePath, completion: completion)
     }
-    
-    
 }
