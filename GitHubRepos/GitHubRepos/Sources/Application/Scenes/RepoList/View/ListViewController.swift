@@ -13,7 +13,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var listViewCell: ListViewCell?
-    
+        
     private var repoResponse: RepoResponse?
     
     private var item: Item?
@@ -40,7 +40,6 @@ extension ListViewController {
         setupNavBar()
         self.tableView.dataSource = self
         register()
-//        fill()
     }
     
     func register() {
@@ -55,9 +54,6 @@ extension ListViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
     }
    
-//    func fill() {
-//        getAuthorImageUrl(IndexPath)
-//    }
     
     func getRepos() {
         RepoAPI().fetchRepos() { [weak self] result in
@@ -71,15 +67,8 @@ extension ListViewController {
         }
     }
     
-//    func getAuthorImageUrl(_ indexPath: IndexPath) {
-//
-//        if let authorImageUrl = owner?.authorImageUrl,
-//           let url = URL(string: authorImageUrl) {
-//            self.listViewCell?.authorImageView.kf.setImage(with: url)
-//        } else {
-//            print("error")
-//        }
-//    }
+    
+    
 }
 
 
@@ -93,24 +82,22 @@ extension ListViewController: UITableViewDataSource {
         items.count
     }
     
-
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ListViewCell else {
             return UITableViewCell()
         }
-        
+                
         let item = indexPath.row
+        cell.getAuthorImageUrl(imageUrl: items[item].owner.authorImageUrl)
+        cell.imageBorder()
+
         cell.repoTitle.text = items[item].repoTitle
         cell.repoDescription.text = items[item].repoDescription
         cell.starsCount.text = String(items[item].starsCount)
-        cell.forksCount.text = String(items[indexPath.row].forksCount)
+        cell.forksCount.text = String(items[item].forksCount)
         cell.username.text = items[item].owner.username
-//        cell.authorImageView.image = authorImage
-        
-        cell.imageBorder()
-                
+            
         return cell
     }
 }

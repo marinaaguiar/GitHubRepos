@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct ListCellDTO {
     let username: String
@@ -35,6 +36,19 @@ class ListViewCell: UITableViewCell {
     func imageBorder() {
         authorImageView.layer.borderWidth = 1
         authorImageView.layer.cornerRadius = 35
-        authorImageView.layer.borderColor = UIColor.lightGray.cgColor
+        authorImageView.layer.borderColor = UIColor.systemGray5.cgColor
     }
+    
+    func getAuthorImageUrl(imageUrl: String?) {
+        DispatchQueue.main.async { [weak self] in
+            
+            if let authorImageUrl = imageUrl,
+               let url = URL(string: authorImageUrl) {
+                self?.authorImageView.kf.setImage(with: url)
+            } else {
+                print("error")
+            }
+        }
+    }
+    
 }
