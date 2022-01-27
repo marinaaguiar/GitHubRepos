@@ -13,16 +13,16 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var listViewCell: ListViewCell?
-        
+    
     private var repoResponse: RepoResponse?
     
     private var item: Item?
     
     private var owner: Owner?
-
+    
     private var items: [Item] = []
     
-    private var pageCount = 0
+    private var pageCount = 1
     
     private var isLoading = false
     
@@ -70,23 +70,22 @@ extension ListViewController {
                 
                 self.items.append(contentsOf: result.items)
                 self.tableView.reloadData()
-
             }
         }
     }
     
     func loadMoreData() {
-            if !self.isLoading {
-                self.isLoading = true
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        self.pageCount += 1
-                        self.getRepos(page: self.pageCount)
-                        self.isLoading = false
-                        self.tableView.reloadData()
-                }
+        if !isLoading {
+            isLoading = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.pageCount += 1
+                self.getRepos(page: self.pageCount)
+                self.isLoading = false
+                self.tableView.reloadData()
             }
         }
+    }
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -94,7 +93,7 @@ extension ListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return items.count
@@ -115,7 +114,7 @@ extension ListViewController: UITableViewDataSource {
             let item = indexPath.row
             cell.fill(item: items[item])
             cell.updateImage(imageUrl: items[item].owner.authorImageUrl)
-            cell.imageBorder()
+            cell.setupCell()
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingcellid", for: indexPath) as! LoadingCell
@@ -127,14 +126,20 @@ extension ListViewController: UITableViewDataSource {
 }
 
 extension ListViewController: UITableViewDelegate {
+
+    func isScrollViewAtEnd() -> Bool {
+        return false
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let offsetY = scrollView.contentOffset.y
-            let contentHeight = scrollView.contentSize.height
-            
-            if (offsetY > contentHeight - scrollView.frame.height * 4) && !isLoading {
-                loadMoreData()
-            }
-        }
+//        scrollView.contentOffset
+//
+//        let offsetY = scrollView.contentOffset.y
+//        let contentHeight = scrollView.contentSize.height
+//
+//        if (offsetY > contentHeight - scrollView.frame.height * 4) && !isLoading {
+//            loadMoreData()
+//        }
+    }
 }
 

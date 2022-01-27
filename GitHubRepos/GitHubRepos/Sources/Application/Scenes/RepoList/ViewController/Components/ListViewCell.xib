@@ -17,9 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="379" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundCell" translatesAutoresizingMaskIntoConstraints="NO" id="KLk-xQ-Sk1">
-                        <rect key="frame" x="0.0" y="0.0" width="379" height="160"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOi-qp-IuJ">
+                        <rect key="frame" x="12" y="6" width="355" height="148"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="C5E-IQ-XKV">
                         <rect key="frame" x="102" y="16" width="261" height="61"/>
                         <subviews>
@@ -91,23 +92,23 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Huf-bj-806" firstAttribute="leading" secondItem="VUB-Bf-B4r" secondAttribute="trailing" constant="16" id="4id-mD-UOF"/>
+                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="top" secondItem="C5E-IQ-XKV" secondAttribute="top" id="59L-4d-mNG"/>
                     <constraint firstAttribute="bottom" secondItem="Huf-bj-806" secondAttribute="bottom" constant="16" id="D6o-nu-Upd"/>
                     <constraint firstItem="Huf-bj-806" firstAttribute="leading" secondItem="C5E-IQ-XKV" secondAttribute="leading" id="F6H-l2-8ch"/>
-                    <constraint firstAttribute="trailing" secondItem="KLk-xQ-Sk1" secondAttribute="trailing" id="HaL-oA-yza"/>
+                    <constraint firstAttribute="bottom" secondItem="IOi-qp-IuJ" secondAttribute="bottom" constant="6" id="JxN-yj-aiQ"/>
                     <constraint firstItem="Huf-bj-806" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="C5E-IQ-XKV" secondAttribute="baseline" constant="20" id="Q6G-jL-AG5"/>
-                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="leading" secondItem="KLk-xQ-Sk1" secondAttribute="leading" constant="16" id="QaV-0k-ekP"/>
-                    <constraint firstItem="VUB-Bf-B4r" firstAttribute="top" secondItem="KLk-xQ-Sk1" secondAttribute="top" constant="16" id="eX3-b4-15D"/>
+                    <constraint firstItem="IOi-qp-IuJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="RYm-xs-jgk"/>
+                    <constraint firstAttribute="trailing" secondItem="IOi-qp-IuJ" secondAttribute="trailing" constant="12" id="XFw-Ao-bMv"/>
                     <constraint firstAttribute="trailing" secondItem="C5E-IQ-XKV" secondAttribute="trailing" constant="16" id="fb5-sP-FVX"/>
-                    <constraint firstItem="KLk-xQ-Sk1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ggB-nF-8EB"/>
-                    <constraint firstAttribute="bottom" secondItem="KLk-xQ-Sk1" secondAttribute="bottom" id="kRg-HK-mVE"/>
-                    <constraint firstItem="KLk-xQ-Sk1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="l9u-Kd-g2e"/>
                     <constraint firstItem="C5E-IQ-XKV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="mAx-9Y-9Ry"/>
                     <constraint firstItem="C5E-IQ-XKV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="102" id="oeZ-kI-aMh"/>
+                    <constraint firstItem="IOi-qp-IuJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="wNO-PI-W0F"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="authorImageView" destination="VUB-Bf-B4r" id="5JN-7u-9fu"/>
+                <outlet property="backgroundCell" destination="IOi-qp-IuJ" id="ozM-3Y-fnl"/>
                 <outlet property="forksCount" destination="IdS-n2-ZLF" id="Alb-uJ-Cga"/>
                 <outlet property="imageView" destination="VUB-Bf-B4r" id="c2V-rf-oVu"/>
                 <outlet property="repoDescription" destination="ei6-p1-tKD" id="YYJ-ne-Td2"/>
@@ -119,7 +120,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="backgroundCell" width="389" height="114"/>
         <image name="fork" width="14" height="14"/>
         <image name="star" width="14" height="13"/>
         <systemColor name="systemGray4Color">
