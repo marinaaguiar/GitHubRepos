@@ -31,11 +31,11 @@ struct RepoAPI {
     
     private let apiService = APIService()
         
-    private let basePath = "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1"
+    private let basePath = "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page="
     
     private var repoResponse: RepoResponse?
 
-    func fetchRepos(completion: @escaping (RepoResponse) -> Void) {
-        apiService.fetchGenericData(urlString: basePath, completion: completion)
+    func fetchRepos(page: Int, completion: @escaping (RepoResponse) -> Void) {
+        apiService.fetchGenericData(urlString: basePath + String(page), completion: completion)
     }
 }
