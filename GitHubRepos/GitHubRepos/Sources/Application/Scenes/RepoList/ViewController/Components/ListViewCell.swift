@@ -55,8 +55,9 @@ class ListViewCell: UITableViewCell {
     func updateImage(imageUrl: String?) {
         if let urlString = imageUrl,
             let url = URL(string: urlString) {
+            
             authorImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { _ in
-                self.setNeedsLayout()                
+                self.setNeedsLayout()
             })
             
         }

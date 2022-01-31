@@ -28,7 +28,6 @@ class ListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getRepos(page: pageCount)
     }
     
     override func viewDidLoad() {
@@ -79,8 +78,8 @@ extension ListViewController {
             isLoading = true
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.pageCount += 1
                 self.getRepos(page: self.pageCount)
+                self.pageCount += 1
                 self.isLoading = false
                 self.tableView.reloadData()
             }
@@ -127,19 +126,22 @@ extension ListViewController: UITableViewDataSource {
 
 extension ListViewController: UITableViewDelegate {
 
-    func isScrollViewAtEnd() -> Bool {
-        return false
+    func isScrollViewAtEnd() -> Bool {        
+        
+        let contentHeight = tableView.contentSize.height
+        let maxVisibleHeight = tableView.contentOffset.y + tableView.frame.height
+        
+        guard contentHeight > 0 else {
+            return false
+        }
+
+        return (maxVisibleHeight / contentHeight) >= 1.0
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        scrollView.contentOffset
-//
-//        let offsetY = scrollView.contentOffset.y
-//        let contentHeight = scrollView.contentSize.height
-//
-//        if (offsetY > contentHeight - scrollView.frame.height * 4) && !isLoading {
-//            loadMoreData()
-//        }
+        if isScrollViewAtEnd() {
+            loadMoreData()
+        }
     }
 }
 
