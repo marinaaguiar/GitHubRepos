@@ -32,10 +32,21 @@ struct RepoAPI {
     private let apiService = APIService()
         
     private let basePath = "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page="
-    
     private var repoResponse: RepoResponse?
 
     func fetchRepos(page: Int, completion: @escaping (RepoResponse) -> Void) {
         apiService.fetchGenericData(urlString: basePath + String(page), completion: completion)
+    }
+}
+
+struct PRAPI {
+    
+    private let apiService = APIService()
+
+    private let basePath = "https://api.github.com/repos/"
+    private let suffixPath = "/pulls"
+        
+    func fetchPRs(fullName: String, completion: @escaping ([PullResquest]) -> Void) {
+        apiService.fetchGenericData(urlString: basePath + fullName + suffixPath, completion: completion)
     }
 }

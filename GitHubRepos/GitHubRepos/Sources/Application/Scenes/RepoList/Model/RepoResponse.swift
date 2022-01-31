@@ -14,6 +14,7 @@ struct RepoResponse: Codable {
 
 struct Item: Codable {
     let repoTitle: String?
+    let fullName: String?
     let owner: Owner
     let repoDescription: String?
     let forksCount: Int
@@ -35,6 +36,7 @@ private extension RepoResponse {
 private extension Item {
     enum CodingKeys: String, CodingKey {
         case repoTitle = "name"
+        case fullName = "full_name"
         case owner
         case repoDescription = "description"
         case forksCount = "forks"

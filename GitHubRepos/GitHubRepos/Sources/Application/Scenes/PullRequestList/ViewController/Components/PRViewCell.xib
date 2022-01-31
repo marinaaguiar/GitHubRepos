@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prCell" rowHeight="133" id="KGk-i7-Jjw" customClass="PRViewCell" customModule="GitHubRepos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="373" height="133"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OPd-09-Tst">
+                        <rect key="frame" x="16" y="16" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="XTM-DF-UxQ"/>
+                            <constraint firstAttribute="height" constant="70" id="nad-Ke-3DG"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Etx-lj-kPb">
+                        <rect key="frame" x="94" y="16" width="263" height="106"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OAZ-Va-t3z">
+                                <rect key="frame" x="0.0" y="0.0" width="263" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="pullRequestTittle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-nc-qUd">
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" red="0.2353614268" green="0.2353614268" blue="0.2353614268" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7m-dS-inW">
+                                        <rect key="frame" x="0.0" y="28" width="263" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="tintColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="GdH-dL-kdg"/>
+                                    <constraint firstItem="zBe-nc-qUd" firstAttribute="centerX" secondItem="OAZ-Va-t3z" secondAttribute="centerX" id="Ove-0F-0xo"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-MS-GcW">
+                                <rect key="frame" x="0.0" y="61" width="263" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="pullRequestDescription" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yU6-7j-Yf6">
+                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.38955965910000001" green="0.38955965910000001" blue="0.38955965910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: 01 nov, 2021" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5H-7C-EbW">
+                                        <rect key="frame" x="0.0" y="28" width="119" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.59578203910000005" green="0.59578203910000005" blue="0.59578203910000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="2hE-vI-3Er"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OAZ-Va-t3z" firstAttribute="top" secondItem="Etx-lj-kPb" secondAttribute="top" id="F8h-1C-Hqn"/>
+                            <constraint firstItem="OAZ-Va-t3z" firstAttribute="leading" secondItem="Etx-lj-kPb" secondAttribute="leading" id="IR9-aw-agW"/>
+                            <constraint firstItem="3IE-MS-GcW" firstAttribute="top" secondItem="OAZ-Va-t3z" secondAttribute="bottom" constant="16" id="PVX-TV-IIV"/>
+                            <constraint firstAttribute="trailing" secondItem="OAZ-Va-t3z" secondAttribute="trailing" id="acf-Ey-1tA"/>
+                            <constraint firstAttribute="trailing" secondItem="3IE-MS-GcW" secondAttribute="trailing" id="cJF-dE-fja"/>
+                            <constraint firstItem="3IE-MS-GcW" firstAttribute="leading" secondItem="Etx-lj-kPb" secondAttribute="leading" id="fga-Pd-L69"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="xni-XK-uA7"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Etx-lj-kPb" secondAttribute="trailing" constant="16" id="03r-IX-bvQ"/>
+                    <constraint firstItem="Etx-lj-kPb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="0Nz-eH-lYa"/>
+                    <constraint firstItem="Etx-lj-kPb" firstAttribute="leading" secondItem="OPd-09-Tst" secondAttribute="trailing" constant="8" id="3rD-qt-4Bu"/>
+                    <constraint firstItem="OPd-09-Tst" firstAttribute="top" secondItem="Etx-lj-kPb" secondAttribute="top" id="dSb-2d-jcF"/>
+                    <constraint firstAttribute="bottom" secondItem="Etx-lj-kPb" secondAttribute="bottom" constant="16" id="fZk-uw-cV9"/>
+                    <constraint firstItem="OPd-09-Tst" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gVF-lk-6Fp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="prAuthorImageView" destination="OPd-09-Tst" id="c0y-W4-Kph"/>
+                <outlet property="prDate" destination="o5H-7C-EbW" id="gKt-cQ-OaK"/>
+                <outlet property="prDescription" destination="yU6-7j-Yf6" id="hph-Uq-9Cg"/>
+                <outlet property="prTittle" destination="zBe-nc-qUd" id="Xsz-TT-yHf"/>
+                <outlet property="username" destination="M7m-dS-inW" id="sGZ-Je-tvX"/>
+            </connections>
+            <point key="canvasLocation" x="167.39130434782609" y="118.86160714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -110,9 +110,9 @@ extension ListViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListViewCell
             
-            let item = indexPath.row
-            cell.fill(item: items[item])
-            cell.updateImage(imageUrl: items[item].owner.authorImageUrl)
+            let index = indexPath.row
+            cell.fill(item: items[index])
+            cell.updateImage(imageUrl: items[index].owner.authorImageUrl)
             cell.setupCell()
             return cell
         } else {
@@ -125,23 +125,49 @@ extension ListViewController: UITableViewDataSource {
 }
 
 extension ListViewController: UITableViewDelegate {
-
-    func isScrollViewAtEnd() -> Bool {        
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        let contentHeight = tableView.contentSize.height
-        let maxVisibleHeight = tableView.contentOffset.y + tableView.frame.height
-        
-        guard contentHeight > 0 else {
-            return false
+        guard let repoTitle = items[indexPath.row].repoTitle else {
+            return
         }
-
-        return (maxVisibleHeight / contentHeight) >= 1.0
+        
+        guard let fullName = items[indexPath.row].fullName else {
+            return
+        }
+        
+        displayPullRequests(repoTitle, fullName)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if isScrollViewAtEnd() {
-            loadMoreData()
+    func isScrollViewAtEnd() -> Bool {
+        
+        let offsetY = tableView.contentOffset.y
+        let contentHeight = tableView.contentSize.height
+        
+        if offsetY > contentHeight - tableView.frame.size.height {
+            return true
+        } else {
+            return false
         }
+    }
+        
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            if isScrollViewAtEnd() {
+                loadMoreData()
+            }
+        }
+}
+
+
+extension ListViewController {
+    
+    func displayPullRequests(_ repoTitle: String, _ fullName: String) {
+        let prViewController = PRListViewController()
+        
+        prViewController.setupRepoTitle(repoTitle: repoTitle)
+        prViewController.getPR(fullName: fullName)
+        navigationController?.pushViewController(prViewController, animated: true)
     }
 }
 

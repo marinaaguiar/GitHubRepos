@@ -20,6 +20,11 @@
 		9CB02AA9279F0E2D000BCE20 /* RepoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AA8279F0E2D000BCE20 /* RepoResponse.swift */; };
 		9CB02AB327A2E0B3000BCE20 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AB127A2E0B3000BCE20 /* LoadingCell.swift */; };
 		9CB02AB427A2E0B3000BCE20 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02AB227A2E0B3000BCE20 /* LoadingCell.xib */; };
+		9CB02AB927A7F7E1000BCE20 /* PRListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AB727A7F7E1000BCE20 /* PRListViewController.swift */; };
+		9CB02ABA27A7F7E1000BCE20 /* PRListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02AB827A7F7E1000BCE20 /* PRListViewController.xib */; };
+		9CB02ABE27A7F81F000BCE20 /* PRViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02ABC27A7F81F000BCE20 /* PRViewCell.swift */; };
+		9CB02ABF27A7F81F000BCE20 /* PRViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02ABD27A7F81F000BCE20 /* PRViewCell.xib */; };
+		9CB02AC227A82A35000BCE20 /* PRResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02AC127A82A35000BCE20 /* PRResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		9CB02AA8279F0E2D000BCE20 /* RepoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoResponse.swift; sourceTree = "<group>"; };
 		9CB02AB127A2E0B3000BCE20 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		9CB02AB227A2E0B3000BCE20 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		9CB02AB727A7F7E1000BCE20 /* PRListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRListViewController.swift; sourceTree = "<group>"; };
+		9CB02AB827A7F7E1000BCE20 /* PRListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRListViewController.xib; sourceTree = "<group>"; };
+		9CB02ABC27A7F81F000BCE20 /* PRViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRViewCell.swift; sourceTree = "<group>"; };
+		9CB02ABD27A7F81F000BCE20 /* PRViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRViewCell.xib; sourceTree = "<group>"; };
+		9CB02AC127A82A35000BCE20 /* PRResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRResponse.swift; sourceTree = "<group>"; };
 		A47D9855BB63E38EE72C6391 /* Pods-GitHubRepos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubRepos.release.xcconfig"; path = "Target Support Files/Pods-GitHubRepos/Pods-GitHubRepos.release.xcconfig"; sourceTree = "<group>"; };
 		DF9E9209B0D944699ED68916 /* libPods-GitHubRepos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHubRepos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9CB02A94279EDC8E000BCE20 /* RepoList */,
+				9CB02AB527A7F785000BCE20 /* PullRequestList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -187,6 +198,42 @@
 				9CB02AA3279EEA61000BCE20 /* Components */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9CB02AB527A7F785000BCE20 /* PullRequestList */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AC027A8290A000BCE20 /* Model */,
+				9CB02AB627A7F7AF000BCE20 /* ViewController */,
+			);
+			path = PullRequestList;
+			sourceTree = "<group>";
+		};
+		9CB02AB627A7F7AF000BCE20 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AB727A7F7E1000BCE20 /* PRListViewController.swift */,
+				9CB02AB827A7F7E1000BCE20 /* PRListViewController.xib */,
+				9CB02ABB27A7F7F7000BCE20 /* Components */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9CB02ABB27A7F7F7000BCE20 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02ABC27A7F81F000BCE20 /* PRViewCell.swift */,
+				9CB02ABD27A7F81F000BCE20 /* PRViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9CB02AC027A8290A000BCE20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CB02AC127A82A35000BCE20 /* PRResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D7A9DCA46E3329A7A8CE74E5 /* Frameworks */ = {
@@ -260,7 +307,9 @@
 				9CB02A87279EC7C4000BCE20 /* LaunchScreen.storyboard in Resources */,
 				9CB02AA7279EEA85000BCE20 /* ListViewCell.xib in Resources */,
 				9CB02AB427A2E0B3000BCE20 /* LoadingCell.xib in Resources */,
+				9CB02ABF27A7F81F000BCE20 /* PRViewCell.xib in Resources */,
 				9CB02A84279EC7C4000BCE20 /* Assets.xcassets in Resources */,
+				9CB02ABA27A7F7E1000BCE20 /* PRListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +347,14 @@
 			files = (
 				9CB02A9E279EDD34000BCE20 /* ListViewController.swift in Sources */,
 				9CB02AA2279EDDEA000BCE20 /* APIService.swift in Sources */,
+				9CB02AC227A82A35000BCE20 /* PRResponse.swift in Sources */,
 				9CB02A7B279EC7C3000BCE20 /* AppDelegate.swift in Sources */,
 				9CB02AA6279EEA85000BCE20 /* ListViewCell.swift in Sources */,
 				9CB02AA9279F0E2D000BCE20 /* RepoResponse.swift in Sources */,
 				9CB02AB327A2E0B3000BCE20 /* LoadingCell.swift in Sources */,
+				9CB02ABE27A7F81F000BCE20 /* PRViewCell.swift in Sources */,
 				9CB02A7D279EC7C3000BCE20 /* SceneDelegate.swift in Sources */,
+				9CB02AB927A7F7E1000BCE20 /* PRListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
