@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MarkdownKit
 
 class PRViewCell: UITableViewCell {
     
@@ -18,7 +19,7 @@ class PRViewCell: UITableViewCell {
     func fill(pullResquest: PullResquest) {
         prTittle.text = pullResquest.title
         username.text = pullResquest.user.username
-        prDescription.text = pullResquest.body
+        prDescription.attributedText = markdownParse(prDescription: pullResquest.body)
         prDate.text = dateFormatter(prDate: pullResquest.dateCreated)
     }
 
@@ -32,6 +33,18 @@ class PRViewCell: UITableViewCell {
         }
         return ""
     }
+    
+    func markdownParse(prDescription: String?) -> NSAttributedString {
+        if let inputDescription = prDescription {
+            let markdownParser = MarkdownParser()
+            let markdown = "\(inputDescription)"
+            let prDescriptionString = markdownParser.parse(markdown)
+            return prDescriptionString
+        }
+        return abort() as! NSAttributedString
+    }
+    
+    
     
     func setupCell() {
         imageBorder()
