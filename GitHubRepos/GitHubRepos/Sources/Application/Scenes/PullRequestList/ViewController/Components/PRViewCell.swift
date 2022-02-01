@@ -19,7 +19,18 @@ class PRViewCell: UITableViewCell {
         prTittle.text = pullResquest.title
         username.text = pullResquest.user.username
         prDescription.text = pullResquest.body
-        prDate.text = pullResquest.dateCreated
+        prDate.text = dateFormatter(prDate: pullResquest.dateCreated)
+    }
+
+    func dateFormatter(prDate: String?) -> String {
+        if let inputDate = prDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            let date = dateFormatter.date(from: inputDate) ?? Date()
+            dateFormatter.dateFormat = "MMM d, yyyy h:mm a"
+            return dateFormatter.string(from: date)
+        }
+        return ""
     }
     
     func setupCell() {
@@ -27,14 +38,13 @@ class PRViewCell: UITableViewCell {
     }
     
     func imageBorder() {
-        prAuthorImageView.frame.size.width = 70
-        prAuthorImageView.frame.size.height = 70
+        prAuthorImageView.frame.size.width = 60
+        prAuthorImageView.frame.size.height = 60
 
         prAuthorImageView.layer.borderWidth = 1
-        prAuthorImageView.layer.cornerRadius = 35
+        prAuthorImageView.layer.cornerRadius = (prAuthorImageView.frame.size.width / 2)
         prAuthorImageView.layer.borderColor = UIColor.systemGray5.cgColor
     }
-
     
     func updateImage(imageUrl: String?) {
         if let urlString = imageUrl,

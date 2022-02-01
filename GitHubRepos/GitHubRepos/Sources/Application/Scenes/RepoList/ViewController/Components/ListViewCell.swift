@@ -37,7 +37,7 @@ class ListViewCell: UITableViewCell {
         authorImageView.frame.size.height = 70
 
         authorImageView.layer.borderWidth = 1
-        authorImageView.layer.cornerRadius = 35
+        authorImageView.layer.cornerRadius = (authorImageView.frame.size.width / 2)
         authorImageView.layer.borderColor = UIColor.systemGray5.cgColor
     }
     
