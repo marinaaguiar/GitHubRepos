@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftUI
 
 class ListViewController: UIViewController {
     
@@ -128,7 +129,7 @@ extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+                
         guard let repoTitle = items[indexPath.row].repoTitle else {
             return
         }
@@ -136,8 +137,24 @@ extension ListViewController: UITableViewDelegate {
         guard let fullName = items[indexPath.row].fullName else {
             return
         }
-        
         displayPullRequests(repoTitle, fullName)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ListViewCell {
+            cell.backgroundCell.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
+            cell.backgroundCell.layer.shadowOpacity = 0.4
+            cell.contentView.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ListViewCell {
+            cell.backgroundCell.backgroundColor = nil
+            cell.backgroundCell.layer.shadowOpacity = 0.2
+            cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
     }
     
     func isScrollViewAtEnd() -> Bool {
