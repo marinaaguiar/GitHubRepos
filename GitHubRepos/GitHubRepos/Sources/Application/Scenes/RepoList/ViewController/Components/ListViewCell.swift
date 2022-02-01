@@ -33,9 +33,6 @@ class ListViewCell: UITableViewCell {
     }
     
     func imageBorder() {
-        authorImageView.frame.size.width = 70
-        authorImageView.frame.size.height = 70
-
         authorImageView.layer.borderWidth = 1
         authorImageView.layer.cornerRadius = (authorImageView.frame.size.width / 2)
         authorImageView.layer.borderColor = UIColor.systemGray5.cgColor
@@ -51,7 +48,7 @@ class ListViewCell: UITableViewCell {
         backgroundCell.layer.shadowOffset = CGSize(width: CGFloat(1.0), height: CGFloat(1.0))
         backgroundCell.layer.shadowOpacity = 0.2
     }
-    
+        
     func updateImage(imageUrl: String?) {
         if let urlString = imageUrl,
             let url = URL(string: urlString) {

@@ -21,8 +21,16 @@
                         <rect key="frame" x="12" y="6" width="355" height="148"/>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VUB-Bf-B4r">
+                        <rect key="frame" x="28" y="22" width="70" height="70"/>
+                        <color key="tintColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="RYf-f6-Em1"/>
+                            <constraint firstAttribute="height" constant="70" id="S7t-iY-j5P"/>
+                        </constraints>
+                    </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="C5E-IQ-XKV">
-                        <rect key="frame" x="102" y="16" width="261" height="62.5"/>
+                        <rect key="frame" x="114" y="22" width="237" height="62.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="repositoryTitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfq-K7-3sx">
                                 <rect key="frame" x="0.0" y="0.0" width="122.5" height="21.5"/>
@@ -48,7 +56,7 @@
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Huf-bj-806">
-                        <rect key="frame" x="102" y="124" width="124.5" height="20"/>
+                        <rect key="frame" x="114" y="118" width="124.5" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="W8r-Lx-yKW">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -81,27 +89,19 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="KzV-sT-bXw"/>
                         </constraints>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="VUB-Bf-B4r">
-                        <rect key="frame" x="16" y="16" width="70" height="70"/>
-                        <color key="tintColor" systemColor="systemGray4Color"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="70" id="RYf-f6-Em1"/>
-                            <constraint firstAttribute="height" constant="70" id="S7t-iY-j5P"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Huf-bj-806" firstAttribute="leading" secondItem="VUB-Bf-B4r" secondAttribute="trailing" constant="16" id="4id-mD-UOF"/>
                     <constraint firstItem="VUB-Bf-B4r" firstAttribute="top" secondItem="C5E-IQ-XKV" secondAttribute="top" id="59L-4d-mNG"/>
-                    <constraint firstAttribute="bottom" secondItem="Huf-bj-806" secondAttribute="bottom" constant="16" id="D6o-nu-Upd"/>
+                    <constraint firstItem="IOi-qp-IuJ" firstAttribute="bottom" secondItem="Huf-bj-806" secondAttribute="bottom" constant="16" id="D6o-nu-Upd"/>
+                    <constraint firstItem="IOi-qp-IuJ" firstAttribute="leading" secondItem="VUB-Bf-B4r" secondAttribute="leading" constant="-16" id="DbQ-xX-MqN"/>
                     <constraint firstItem="Huf-bj-806" firstAttribute="leading" secondItem="C5E-IQ-XKV" secondAttribute="leading" id="F6H-l2-8ch"/>
                     <constraint firstAttribute="bottom" secondItem="IOi-qp-IuJ" secondAttribute="bottom" constant="6" id="JxN-yj-aiQ"/>
+                    <constraint firstItem="C5E-IQ-XKV" firstAttribute="trailing" secondItem="IOi-qp-IuJ" secondAttribute="trailing" constant="-16" id="LNL-NN-sRa"/>
                     <constraint firstItem="Huf-bj-806" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="C5E-IQ-XKV" secondAttribute="baseline" constant="20" id="Q6G-jL-AG5"/>
                     <constraint firstItem="IOi-qp-IuJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="RYm-xs-jgk"/>
                     <constraint firstAttribute="trailing" secondItem="IOi-qp-IuJ" secondAttribute="trailing" constant="12" id="XFw-Ao-bMv"/>
-                    <constraint firstAttribute="trailing" secondItem="C5E-IQ-XKV" secondAttribute="trailing" constant="16" id="fb5-sP-FVX"/>
-                    <constraint firstItem="C5E-IQ-XKV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="mAx-9Y-9Ry"/>
-                    <constraint firstItem="C5E-IQ-XKV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="102" id="oeZ-kI-aMh"/>
+                    <constraint firstItem="C5E-IQ-XKV" firstAttribute="top" secondItem="IOi-qp-IuJ" secondAttribute="top" constant="16" id="mAx-9Y-9Ry"/>
+                    <constraint firstItem="C5E-IQ-XKV" firstAttribute="leading" secondItem="VUB-Bf-B4r" secondAttribute="trailing" constant="16" id="uME-7O-qUh"/>
                     <constraint firstItem="IOi-qp-IuJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="wNO-PI-W0F"/>
                 </constraints>
             </tableViewCellContentView>
@@ -110,7 +110,6 @@
                 <outlet property="authorImageView" destination="VUB-Bf-B4r" id="5JN-7u-9fu"/>
                 <outlet property="backgroundCell" destination="IOi-qp-IuJ" id="ozM-3Y-fnl"/>
                 <outlet property="forksCount" destination="IdS-n2-ZLF" id="Alb-uJ-Cga"/>
-                <outlet property="imageView" destination="VUB-Bf-B4r" id="c2V-rf-oVu"/>
                 <outlet property="repoDescription" destination="ei6-p1-tKD" id="YYJ-ne-Td2"/>
                 <outlet property="repoTitle" destination="qfq-K7-3sx" id="M2r-u0-vI4"/>
                 <outlet property="starsCount" destination="fet-cI-5ee" id="LVM-os-6ts"/>

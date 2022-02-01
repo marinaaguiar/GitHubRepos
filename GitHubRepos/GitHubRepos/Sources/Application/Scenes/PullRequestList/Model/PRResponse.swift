@@ -8,16 +8,16 @@
 import Foundation
 
 struct PullResquest: Codable {
-    let title: String
+    let title: String?
     let user: User
-    let body: String
-    let dateCreated: String
+    let body: String?
+    let dateCreated: String?
 
 }
 
 struct User: Codable {
-    let username: String
-    let authorImageUrl: String
+    let username: String?
+    let authorImageUrl: String?
 }
 
 private extension PullResquest {

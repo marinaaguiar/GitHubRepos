@@ -110,11 +110,11 @@ extension ListViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListViewCell
-            
             let index = indexPath.row
             cell.fill(item: items[index])
             cell.updateImage(imageUrl: items[index].owner.authorImageUrl)
             cell.setupCell()
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingcellid", for: indexPath) as! LoadingCell
