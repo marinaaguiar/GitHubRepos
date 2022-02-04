@@ -40,7 +40,7 @@ class ListViewCell: UITableViewCell {
     
     func backgroundBorder() {
         backgroundCell.layer.borderWidth = 1
-        backgroundCell.layer.cornerRadius = 10
+        backgroundCell.layer.cornerRadius = 15
         backgroundCell.layer.borderColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00).cgColor
         
         backgroundCell.layer.masksToBounds = false

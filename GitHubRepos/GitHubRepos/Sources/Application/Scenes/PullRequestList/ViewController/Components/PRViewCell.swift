@@ -34,14 +34,16 @@ class PRViewCell: UITableViewCell {
         return ""
     }
     
-    func markdownParse(prDescription: String?) -> NSAttributedString {
+    func markdownParse(prDescription: String?) -> NSAttributedString? {
+        
         if let inputDescription = prDescription {
             let markdownParser = MarkdownParser()
             let markdown = "\(inputDescription)"
             let prDescriptionString = markdownParser.parse(markdown)
             return prDescriptionString
         }
-        return abort() as! NSAttributedString
+        print("failed to populate text view with current scene")
+        return nil
     }
     
     
