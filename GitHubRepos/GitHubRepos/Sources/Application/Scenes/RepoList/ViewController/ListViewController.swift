@@ -12,6 +12,8 @@ import SwiftUI
 class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+        
+    private lazy var viewModel: ListViewModelProtocol = ListViewModel(delegate: self)
     
     private var listViewCell: ListViewCell?
     
@@ -22,9 +24,7 @@ class ListViewController: UIViewController {
     private var owner: Owner?
     
     private var items: [Item] = []
-    
-    private var pageCount = 1
-    
+        
     private var isLoading = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,26 +61,14 @@ extension ListViewController {
         navigationItem.title = "GitHub Repositories"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
-    
-    func getRepos(page: Int) {
-        RepoAPI().fetchRepos(page: pageCount) { [weak self] result in
-            DispatchQueue.main.async {
-                
-                guard let self = self else { return }
-                
-                self.items.append(contentsOf: result.items)
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
+
     func loadMoreData() {
         if !isLoading {
             isLoading = true
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.getRepos(page: self.pageCount)
-                self.pageCount += 1
+                self.viewModel.loadData(query: String(self.viewModel.pageCount))
+                self.viewModel.pageCount += 1
                 self.isLoading = false
                 self.tableView.reloadData()
             }
@@ -107,14 +95,13 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListViewCell
             let index = indexPath.row
             cell.fill(item: items[index])
             cell.updateImage(imageUrl: items[index].owner.authorImageUrl)
             cell.setupCell()
-
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingcellid", for: indexPath) as! LoadingCell
@@ -183,8 +170,21 @@ extension ListViewController {
         let prViewController = PRListViewController()
         
         prViewController.setupRepoTitle(repoTitle: repoTitle)
-        prViewController.getPR(fullName: fullName)
+//        prViewController.getPR(fullName: fullName)
         navigationController?.pushViewController(prViewController, animated: true)
     }
 }
 
+extension ListViewController: ListViewModelDelegate {
+    
+    func didLoad() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didLoadWithError() {
+        viewModel.errorAlert(title: "Current Data Not Available", message: "Try again later", vc: self)
+    }
+}

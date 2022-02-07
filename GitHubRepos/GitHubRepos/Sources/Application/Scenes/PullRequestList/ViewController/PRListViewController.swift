@@ -21,7 +21,7 @@ class PRListViewController: UIViewController {
     var fullName: String = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        getPR(fullName: fullName)
+//        getPR(fullName: fullName)
     }
     
     override func viewDidLoad() {
@@ -52,17 +52,17 @@ extension PRListViewController {
         )
     }
     
-    func getPR(fullName: String) {
-        PRAPI().fetchPRs(fullName: fullName) { [weak self] result in
-            DispatchQueue.main.async {
-                
-                guard let self = self else { return }
-                
-                self.pullResquests = result
-                self.tableView.reloadData()
-            }
-        }
-    }
+//    func getPR(fullName: String) {
+//        PRAPI().fetchPRs(fullName: fullName) { [weak self] result in
+//            DispatchQueue.main.async {
+//
+//                guard let self = self else { return }
+//
+//                self.pullResquests = result
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
 
 }
 

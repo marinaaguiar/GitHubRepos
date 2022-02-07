@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		017EDE460E685AF4D00CF97E /* libPods-GitHubRepos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9E9209B0D944699ED68916 /* libPods-GitHubRepos.a */; };
+		9C5150B427AD48F4006D635C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5150B327AD48F4006D635C /* ListViewModel.swift */; };
+		9C5150B627AD49CE006D635C /* ListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5150B527AD49CE006D635C /* ListViewModelProtocol.swift */; };
+		9C5150BA27B16F3B006D635C /* RepoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5150B927B16F3B006D635C /* RepoAPI.swift */; };
+		9C5150BC27B16F50006D635C /* PRAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5150BB27B16F50006D635C /* PRAPI.swift */; };
+		9C5150BE27B1A697006D635C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5150BD27B1A697006D635C /* EndPoint.swift */; };
 		9CB02A7B279EC7C3000BCE20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02A7A279EC7C3000BCE20 /* AppDelegate.swift */; };
 		9CB02A7D279EC7C3000BCE20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB02A7C279EC7C3000BCE20 /* SceneDelegate.swift */; };
 		9CB02A84279EC7C4000BCE20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CB02A83279EC7C4000BCE20 /* Assets.xcassets */; };
@@ -29,6 +34,11 @@
 
 /* Begin PBXFileReference section */
 		34F148B889553D6682592882 /* Pods-GitHubRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubRepos.debug.xcconfig"; path = "Target Support Files/Pods-GitHubRepos/Pods-GitHubRepos.debug.xcconfig"; sourceTree = "<group>"; };
+		9C5150B327AD48F4006D635C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		9C5150B527AD49CE006D635C /* ListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelProtocol.swift; sourceTree = "<group>"; };
+		9C5150B927B16F3B006D635C /* RepoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoAPI.swift; sourceTree = "<group>"; };
+		9C5150BB27B16F50006D635C /* PRAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRAPI.swift; sourceTree = "<group>"; };
+		9C5150BD27B1A697006D635C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		9CB02A77279EC7C3000BCE20 /* GitHubRepos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubRepos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB02A7A279EC7C3000BCE20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CB02A7C279EC7C3000BCE20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +81,15 @@
 				A47D9855BB63E38EE72C6391 /* Pods-GitHubRepos.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9C5150B227AD48DE006D635C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9C5150B327AD48F4006D635C /* ListViewModel.swift */,
+				9C5150B527AD49CE006D635C /* ListViewModelProtocol.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9CB02A6E279EC7C3000BCE20 = {
@@ -158,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				9CB02AAA279F0E38000BCE20 /* Model */,
+				9C5150B227AD48DE006D635C /* ViewModel */,
 				9CB02AAE27A045B7000BCE20 /* ViewController */,
 			);
 			path = RepoList;
@@ -167,6 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				9CB02AA1279EDDEA000BCE20 /* APIService.swift */,
+				9C5150BD27B1A697006D635C /* EndPoint.swift */,
+				9C5150B927B16F3B006D635C /* RepoAPI.swift */,
+				9C5150BB27B16F50006D635C /* PRAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -349,12 +372,17 @@
 				9CB02AA2279EDDEA000BCE20 /* APIService.swift in Sources */,
 				9CB02AC227A82A35000BCE20 /* PRResponse.swift in Sources */,
 				9CB02A7B279EC7C3000BCE20 /* AppDelegate.swift in Sources */,
+				9C5150B627AD49CE006D635C /* ListViewModelProtocol.swift in Sources */,
 				9CB02AA6279EEA85000BCE20 /* ListViewCell.swift in Sources */,
 				9CB02AA9279F0E2D000BCE20 /* RepoResponse.swift in Sources */,
 				9CB02AB327A2E0B3000BCE20 /* LoadingCell.swift in Sources */,
+				9C5150BC27B16F50006D635C /* PRAPI.swift in Sources */,
 				9CB02ABE27A7F81F000BCE20 /* PRViewCell.swift in Sources */,
 				9CB02A7D279EC7C3000BCE20 /* SceneDelegate.swift in Sources */,
+				9C5150BA27B16F3B006D635C /* RepoAPI.swift in Sources */,
+				9C5150BE27B1A697006D635C /* EndPoint.swift in Sources */,
 				9CB02AB927A7F7E1000BCE20 /* PRListViewController.swift in Sources */,
+				9C5150B427AD48F4006D635C /* ListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

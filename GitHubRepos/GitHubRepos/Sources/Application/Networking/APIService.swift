@@ -6,47 +6,50 @@
 //
 
 import Foundation
-import Alamofire
 
 class APIService {
     
-    func fetchGenericData<T: Decodable>(urlString: String, completion: @escaping (T) -> ()) {
+    func fetchGenericData<T: Decodable>(endPoint: EndPoint, completion: @escaping (Result<T, NSError>) -> ()) {
         
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+        debugPrint(endPoint.url)
+        
+        guard let url = endPoint.url else {
+            return completion(.failure(NSError(domain: "", code: 000, userInfo: ["Message": "Invalid URL"])))
+        }
+        
+
+        let task = URLSession.shared.dataTask(with: url) { (data, resp, error) in
             
-            guard let data = data else { return }
+            if let error = error {
+                completion(.failure(NSError(domain: "", code: 000, userInfo: ["Message": error.localizedDescription])))
+                return
+            }
+            
+            guard let data = data else {
+                return completion(.failure(NSError(domain: "", code: 000, userInfo: ["Message": "Can't get data"])))
+            }
             
             do {
-                let obj = try JSONDecoder().decode(T.self, from: data)
-                completion(obj)
-            } catch let error {
-                print("ERROR IS HERE >>> \(error)")
+                let genericData = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(genericData))
+            } catch DecodingError.keyNotFound(let key, let context) {
+                Swift.debugPrint("could not find key \(key) in JSON: \(context.debugDescription)")
+
+            } catch DecodingError.valueNotFound(let type, let context) {
+                Swift.debugPrint("could not find type \(type) in JSON: \(context.debugDescription)")
+
+            } catch DecodingError.typeMismatch(let type, let context) {
+                Swift.debugPrint("type mismatch for type \(type) in JSON: \(context.debugDescription)")
+
+            } catch DecodingError.dataCorrupted(let context) {
+                Swift.debugPrint("data found to be corrupted in JSON: \(context.debugDescription)")
+
+            } catch let error as NSError {
+                NSLog("Error in read(from:ofType:) domain= \(error.domain), description= \(error.localizedDescription)")
             }
-        }.resume()
+        }
+        task.resume()
     }
 }
 
-struct RepoAPI {
-    
-    private let apiService = APIService()
-        
-    private let basePath = "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page="
-    private var repoResponse: RepoResponse?
 
-    func fetchRepos(page: Int, completion: @escaping (RepoResponse) -> Void) {
-        apiService.fetchGenericData(urlString: basePath + String(page), completion: completion)
-    }
-}
-
-struct PRAPI {
-    
-    private let apiService = APIService()
-
-    private let basePath = "https://api.github.com/repos/"
-    private let suffixPath = "/pulls"
-        
-    func fetchPRs(fullName: String, completion: @escaping ([PullResquest]) -> Void) {
-        apiService.fetchGenericData(urlString: basePath + fullName + suffixPath, completion: completion)
-    }
-}
