@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 protocol ListViewModelProtocol: AnyObject {
-    
-//    func getRepos(page: Int)
+
+    var pageCount: Int { get }
+    var items: [Item] { get }
+
     func loadData(query: String)
-    var pageCount: Int { get set }
+    func loadMoreData()
     func errorAlert(title: String, message: String, vc: UIViewController)
-    
 }
 
 protocol ListViewModelDelegate: AnyObject {

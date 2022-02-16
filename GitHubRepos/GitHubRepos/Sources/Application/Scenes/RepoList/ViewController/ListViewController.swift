@@ -12,20 +12,7 @@ import SwiftUI
 class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-        
     private lazy var viewModel: ListViewModelProtocol = ListViewModel(delegate: self)
-    
-    private var listViewCell: ListViewCell?
-    
-    private var repoResponse: RepoResponse?
-    
-    private var item: Item?
-    
-    private var owner: Owner?
-    
-    private var items: [Item] = []
-        
-    private var isLoading = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,19 +48,6 @@ extension ListViewController {
         navigationItem.title = "GitHub Repositories"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
-
-    func loadMoreData() {
-        if !isLoading {
-            isLoading = true
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.viewModel.loadData(query: String(self.viewModel.pageCount))
-                self.viewModel.pageCount += 1
-                self.isLoading = false
-                self.tableView.reloadData()
-            }
-        }
-    }
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -84,7 +58,7 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return items.count
+            return viewModel.items.count
         } else if section == 1 {
             //Return the Loading cell
             return 1
@@ -95,33 +69,34 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         if indexPath.section == 0 {
+            print(">>>> CELL <<<<")
             let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListViewCell
             let index = indexPath.row
-            cell.fill(item: items[index])
-            cell.updateImage(imageUrl: items[index].owner.authorImageUrl)
+            cell.fill(item: viewModel.items[index])
+            cell.updateImage(imageUrl: viewModel.items[index].owner.authorImageUrl)
             cell.setupCell()
             return cell
         } else {
+            print(">>>> LOADING CELL <<<<")
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingcellid", for: indexPath) as! LoadingCell
             cell.loadingIndicator.startAnimating()
             return cell
         }
     }
-    
 }
 
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-                
-        guard let repoTitle = items[indexPath.row].repoTitle else {
+        
+        guard let repoTitle = viewModel.items[indexPath.row].repoTitle else {
             return
         }
         
-        guard let fullName = items[indexPath.row].fullName else {
+        guard let fullName = viewModel.items[indexPath.row].fullName else {
             return
         }
         displayPullRequests(repoTitle, fullName)
@@ -155,12 +130,12 @@ extension ListViewController: UITableViewDelegate {
             return false
         }
     }
-        
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            if isScrollViewAtEnd() {
-                loadMoreData()
-            }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isScrollViewAtEnd() {
+            viewModel.loadMoreData()
         }
+    }
 }
 
 
@@ -170,7 +145,7 @@ extension ListViewController {
         let prViewController = PRListViewController()
         
         prViewController.setupRepoTitle(repoTitle: repoTitle)
-//        prViewController.getPR(fullName: fullName)
+        //        prViewController.getPR(fullName: fullName)
         navigationController?.pushViewController(prViewController, animated: true)
     }
 }

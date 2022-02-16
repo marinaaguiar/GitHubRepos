@@ -11,15 +11,13 @@ import UIKit
 class ListViewModel: ListViewModelProtocol {
     
     private var apiSercice = APIService()
-    
     private var repoResponse: RepoResponse?
-    
     private var item: Item?
-    private var items: [Item] = []
-    
+    private var owner: Owner?
+    var items: [Item] = []
     private weak var delegate: ListViewModelDelegate?
-    
     var pageCount: Int = 1
+    private var isLoading = false
     
     init(delegate: ListViewModelDelegate?) {
         self.delegate = delegate
@@ -28,30 +26,32 @@ class ListViewModel: ListViewModelProtocol {
     func loadData(query: String) {
         apiSercice.fetchGenericData(endPoint: .urlRequestWith(queryType: .page, query: query)) { [weak self] (result: Result<RepoResponse, NSError>) in
             guard let self = self else { return }
-            
+    
             switch result {
             case let .success(data):
-                self.repoResponse = data
+                self.items.append(contentsOf: data.items)
+                self.delegate?.didLoad()
+                self.isLoading = false
                 debugPrint(self.repoResponse)
                 
             case let .failure(error):
+                self.delegate?.didLoadWithError()
                 debugPrint(error)
             }
         }
     }
     
-//    func getRepos(page: Int) {
-//        RepoAPI().fetchRepos(page: pageCount) { [weak self] result in
-//
-//            guard let self = self else {
-//                self?.delegate?.didLoadWithError()
-//                return }
-//
-//            self.items.append(contentsOf: result.items)
-//            self.delegate?.didLoad()
-//            return
-//        }
-//    }
+    func loadMoreData() {
+        if !isLoading {
+            isLoading = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.loadData(query: String(self.pageCount))
+                self.pageCount += 1
+                self.isLoading = false
+            }
+        }
+    }
+
     
     func errorAlert(title: String, message: String, vc: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
